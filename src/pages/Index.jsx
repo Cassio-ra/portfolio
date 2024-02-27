@@ -20,7 +20,7 @@ function Index() {
           <p className='text-2xl'>&gt;</p>
       </Link>
       <div className="top-0 flex flex-col justify-center items-center w-full h-1/4">
-        <img src="/public/Images/Cassio.png" className="size-32 rounded-full mt-5" />
+        <img src="/src/images/Cassio.png" className="size-32 rounded-full mt-5" />
         <p className="text-2xl flex">Cássio Rezende Alvarenga</p>
       </div>
       <div className="flex justify-center content-center w-full p-2 flex-grow h-2/4">
