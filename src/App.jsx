@@ -1,0 +1,58 @@
+import { BsEyeglasses, BsFillHouseDoorFill } from "react-icons/bs";
+import { Helmet } from 'react-helmet';
+import ModalCtt from './components/Contato';
+import Home from './pages/Home';
+import Pessoal from './pages/Pessoal';
+import Pratica from './pages/Pratica';
+import Academico from './pages/Academico';
+import { useState } from "react";
+
+function App() {
+    const [open, setOpen] = useState(false);
+    const [currentPage, setCurrentPage] = useState('home');
+
+    const renderPage = () => {
+        switch (currentPage) {
+            case 'home':
+                return <Home setCurrentPage={setCurrentPage} />;
+            case 'pessoal':
+                return <Pessoal />;
+            case 'pratica':
+                return <Pratica />;
+            case 'academico':
+                return <Academico />;
+            default:
+                return <Home setCurrentPage={setCurrentPage} />;
+        }
+    };
+
+    return (
+        <div className="min-h-screen min-w-screen bg-gradient-to-br from-slate-800 to-violet-700 text-white flex flex-col gap-4">
+            <Helmet>
+                <title>Cássio Rezende Alvarenga</title>
+                {/*<link rel="icon" type="image/png" href="caminho_para_seu_favicon.png" sizes="16x16" />*/}
+            </Helmet>
+            <div className="flex items-center absolute left-2 top-2 group">
+                <p className='text-2xl'>&lt;/</p>
+                    <BsEyeglasses className='text-3xl size-16 group-hover:rotate-3 transition-all' />
+                <p className='text-2xl'>&gt;</p>
+            </div>
+            <div className="top-0 flex flex-col justify-center items-center w-full h-1/4">
+                <img src="/src/images/Cassio.png" className="size-32 rounded-full mt-5"/>
+                <div className="flex items-center">
+                    {currentPage !== 'home' && <BsFillHouseDoorFill className={'absolute -ml-7 size-6 hover:cursor-pointer'} onClick={() => setCurrentPage('home')} />}
+                    <p className="text-2xl flex ">Cássio Rezende Alvarenga</p>
+                </div>
+            </div>
+            <div id={'content'} className="flex justify-center content-center w-full p-2 flex-grow h-2/4">
+                {renderPage()}
+            </div>
+            <div className="p-2 mb-4 flex justify-center content-center w-full h-1/4">
+                <button onClick={() => setOpen(true)} className="border text-xl font-medium h-fit px-4 py-2 rounded-3xl bg-yellow-400 hover:bg-yellow-600 text-black hover:text-white hover:scale-110 hover:rounded-full transition-all duration-300">Contate-me</button>
+            </div>
+            <ModalCtt open={open} close={() => setOpen(false)}></ModalCtt>
+        </div>
+    )
+}
+
+export default App
