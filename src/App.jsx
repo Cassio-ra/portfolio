@@ -6,6 +6,7 @@ import Pessoal from './pages/Pessoal';
 import Pratica from './pages/Pratica';
 import Academico from './pages/Academico';
 import { useState } from "react";
+import Cassio from "/src/images/Cassio.png";
 
 function App() {
     const [open, setOpen] = useState(false);
@@ -30,7 +31,7 @@ function App() {
         <div className="min-h-screen min-w-screen bg-gradient-to-br from-slate-800 to-violet-700 text-white flex flex-col gap-4">
             <Helmet>
                 <title>Cássio Rezende Alvarenga</title>
-                {/*<link rel="icon" type="image/png" href="caminho_para_seu_favicon.png" sizes="16x16" />*/}
+                {/*<link rel="icon" type="image/png" href="caminho_fav.png" sizes="16x16" />*/}
             </Helmet>
             <div className="flex items-center absolute left-2 top-2 group">
                 <p className='text-2xl'>&lt;/</p>
@@ -38,7 +39,7 @@ function App() {
                 <p className='text-2xl'>&gt;</p>
             </div>
             <div className="top-0 flex flex-col justify-center items-center w-full h-1/4">
-                <img src="/src/images/Cassio.png" className="size-32 rounded-full mt-5"/>
+                <img src={Cassio} className="size-32 rounded-full mt-5" alt=""/>
                 <div className="flex items-center">
                     {currentPage !== 'home' && <BsFillHouseDoorFill className={'absolute -ml-7 size-6 hover:cursor-pointer'} onClick={() => setCurrentPage('home')} />}
                     <p className="text-2xl flex ">Cássio Rezende Alvarenga</p>
